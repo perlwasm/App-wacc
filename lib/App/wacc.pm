@@ -35,6 +35,18 @@ sub _clang
     $clang = which 'clang';
   }
 
+  my $max = 30;
+  while(-l $clang)
+  {
+    my $new = path(readlink $clang);
+    if($new->is_relative)
+    {
+      $new = path($clang)->parent->child($new);
+      $new = $new->absolute;
+    }
+    $clang = $new->stringify;
+  }
+
   unless(defined $clang)
   {
     warn "hint: for macOS install llvm via homebrew" if $^O eq 'darwin';
