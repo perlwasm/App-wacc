@@ -15,3 +15,4 @@ pod_coverage:
   # for either Class or method.
   private:
     - App::wacc
+    - App::wa2json

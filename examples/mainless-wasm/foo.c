@@ -15,6 +15,10 @@ EXPORT int add(int a, int b)
   return a+b;
 }
 
+EXPORT void mylog(const char *format)
+{
+}
+
 EXPORT void baz()
 {
   bar();
