@@ -17,6 +17,8 @@ diag '';
 
 my $dir = path( tempdir( CLEANUP => 1 ) );
 
+script_compiles 'bin/wacc';
+
 my $stdout = '';
 my $stderr = '';
 $ENV{APP_WACC_VERBOSE} = 1;

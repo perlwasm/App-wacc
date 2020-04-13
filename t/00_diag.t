@@ -11,11 +11,16 @@ my $post_diag;
 
 $modules{$_} = $_ for qw(
   Alien::WASI::libc
+  Cpanel::JSON::XS
   ExtUtils::MakeMaker
   File::Which
+  JSON::MaybeXS
+  JSON::PP
+  JSON::XS
   Path::Tiny
   Test2::V0
   Test::Script
+  Wasm::Wasmtime
 );
 
 
