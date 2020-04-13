@@ -34,7 +34,7 @@ if($ok)
 }
 else
 {
-  daig "[stdout]\n$stdout" if $stdout ne '';
+  diag "[stdout]\n$stdout" if $stdout ne '';
 }
 
 if($stderr =~ /cannot open (\S+\/libclang_rt.builtins-wasm32.a)/ && Alien::WASI::libc->can('_builtins'))
