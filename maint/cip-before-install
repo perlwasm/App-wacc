@@ -3,5 +3,6 @@
 set -ex
 
 cip sudo apt-get update
-cip sudo apt-get install clang
+cip sudo apt-get install clang-9 lld-9 clang
 cip sudo cpanm -n https://dist.wdlabs.com/Alien-WASI-libc-0.01.tar.gz
+cip sudo ./maint/cip-before-install-guest

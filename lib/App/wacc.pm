@@ -36,7 +36,7 @@ sub _clang
   }
 
   my $max = 30;
-  while(-l $clang)
+  while(defined $clang && -l $clang)
   {
     my $new = path(readlink $clang);
     if($new->is_relative)
