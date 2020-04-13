@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -ex
+
+#export base="$( echo /usr/lib/llvm-*/lib/clang/* | cut -d' ' -f1 )"
+#echo base=$base
+#
+#mkdir -p $base/lib/wasi
+#cp /opt/perl/*/lib/site_perl/*/auto/share/dist/Alien-WASI-libc/lib/wasi/libclang_rt.builtins-wasm32.a \
+#   $base/lib/wasi/libclang_rt.builtins-wasm32.a
+
+for base in $( echo /usr/lib/llvm-*/lib/clang/* ) ; do
+  mkdir -p $base/lib/wasi
+  cp /opt/perl/*/lib/site_perl/*/auto/share/dist/Alien-WASI-libc/lib/wasi/libclang_rt.builtins-wasm32.a \
+     $base/lib/wasi/libclang_rt.builtins-wasm32.a
+done
