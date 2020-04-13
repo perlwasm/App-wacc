@@ -18,6 +18,7 @@ $modules{$_} = $_ for qw(
   JSON::PP
   JSON::XS
   Path::Tiny
+  Test2::Tools::JSON::Pointer
   Test2::V0
   Test::Script
   Wasm::Wasmtime

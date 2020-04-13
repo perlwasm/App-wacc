@@ -3,7 +3,7 @@ package App::wa2json;
 use strict;
 use warnings;
 use 5.010;
-use Wasm::Wasmtime;
+use Wasm::Wasmtime 0.04;
 use JSON::MaybeXS ();
 
 # ABSTRACT: Print WebAssembly imports and exports as JSON
