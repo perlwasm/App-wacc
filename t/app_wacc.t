@@ -26,6 +26,17 @@ my $ok = script_runs
   'compiles a program okay',
 ;
 
+if($ok)
+{
+  note "[stdout]\n$stdout" if $stdout ne '';
+  note "[stderr]\n$stderr" if $stderr ne '';
+  ok -f "$dir/foo.wasm", "generated foo.wasm";
+}
+else
+{
+  daig "[stdout]\n$stdout" if $stdout ne '';
+}
+
 if($stderr =~ /cannot open (\S+\/libclang_rt.builtins-wasm32.a)/ && Alien::WASI::libc->can('_builtins'))
 {
   my $clang_path = $1;
@@ -35,13 +46,6 @@ if($stderr =~ /cannot open (\S+\/libclang_rt.builtins-wasm32.a)/ && Alien::WASI:
   diag '';
   diag "clang is probably missing libclang_rt.builtins-wasm32.a: try:";
   diag "sudo mkdir -p $clang_dir && sudo cp $alien_path $clang_path";
-}
-
-if($ok)
-{
-  note "[stdout]\n$stdout" if $stdout ne '';
-  note "[stderr]\n$stderr" if $stderr ne '';
-  ok -f "$dir/foo.wasm", "generated foo.wasm";
 }
 
 diag '';
