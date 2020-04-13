@@ -1,6 +1,6 @@
 CC=wacc
 CFLAGS=
-LDFLAGS=--no-standard-libraries -Wl,--export-all -Wl,--no-entry
+LDFLAGS=--no-standard-libraries -Wl,--no-entry -Wl,--export-dynamic
 
 foo.wat : foo.wasm
 	wasm2wat foo.wasm > foo.wat
