@@ -3,7 +3,7 @@ package App::wa2json;
 use strict;
 use warnings;
 use 5.010;
-use Wasm::Wasmtime 0.04;
+use Wasm::Wasmtime 0.07;
 use JSON::MaybeXS ();
 
 # ABSTRACT: Print WebAssembly imports and exports as JSON
@@ -51,7 +51,7 @@ sub main
 
   my $module = Wasm::Wasmtime::Module->new( file => $file );
 
-  foreach my $importtype ($module->imports)
+  foreach my $importtype (@{ $module->imports })
   {
     my $kind   = $importtype->type->kind;
 
@@ -62,13 +62,12 @@ sub main
     );
     push @{ $module{imports} }, \%import;
 
-    my $method1 = "as_${kind}type";
-    my $method2 = "_${kind}type";
+    my $method2 = "_$kind";
 
-    __PACKAGE__->$method2(\%import, $importtype->type->$method1);
+    __PACKAGE__->$method2(\%import, $importtype->type);
   }
 
-  foreach my $exporttype ($module->exports)
+  foreach my $exporttype (@{ $module->exports })
   {
     my $kind = $exporttype->type->kind;
 
@@ -79,10 +78,9 @@ sub main
 
     push @{ $module{exports} }, \%export;
 
-    my $method1 = "as_${kind}type";
-    my $method2 = "_${kind}type";
+    my $method2 = "_$kind";
 
-    __PACKAGE__->$method2(\%export, $exporttype->type->$method1);
+    __PACKAGE__->$method2(\%export, $exporttype->type);
   }
 
   print JSON::MaybeXS
