@@ -1,4 +1,4 @@
-# App::wacc [![Build Status](https://secure.travis-ci.org/perlwasm/App-wacc.png)](http://travis-ci.org/perlwasm/App-wacc)
+# App::wacc [![Build Status](https://travis-ci.org/perlwasm/App-wacc.svg)](http://travis-ci.org/perlwasm/App-wacc)
 
 WebAssembly C compiler wrapper for clang
 

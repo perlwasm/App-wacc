@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}},
 
 {{$NEXT}}
 
+0.03      2020-05-08 15:50:54 -0600
+  - Updated for new Wasm::Wasmtime 0.07
+
 0.02      2020-04-13 16:46:33 -0600
   - Added App::wa2json (gh#2)
 
