@@ -23,11 +23,14 @@ sub _clang
     if(-d $opt)
     {
       my($dir) = # llvm dirs with version 8 or better
-                 grep { $_->basename =~ /^llvm\@([0-9]+)$/ && $1 >= 8 }
+                 grep { $_->basename eq 'llvm' || $_->basename =~ /^llvm\@([0-9]+)$/ && $1 >= 8 }
                  # all dirs
                  $opt->children;
-      my $file = $dir->child('bin/clang');
-      $clang = $file->stringify if -x $file;
+      if(defined $dir)
+      {
+        my $file = $dir->child('bin/clang');
+        $clang = $file->stringify if -x $file;
+      }
     }
   }
   else

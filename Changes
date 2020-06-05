@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}},
 
 {{$NEXT}}
+  - Smarter probe on MacOS
 
 0.03      2020-05-08 15:50:54 -0600
   - Updated for new Wasm::Wasmtime 0.07

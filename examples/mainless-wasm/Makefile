@@ -1,5 +1,5 @@
 CC=wacc
-CFLAGS=
+CFLAGS=-fPIC
 LDFLAGS=-Wl,--no-entry -Wl,--export-dynamic -Wl,--allow-undefined
 
 foo.wat : foo.wasm
