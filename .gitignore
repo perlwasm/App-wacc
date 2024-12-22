@@ -2,4 +2,7 @@ App-wacc-*
 /.build/
 *.swp
 
-
+/App-wacc-*
+/.build
+*.old
+*.orig
